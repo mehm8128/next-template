@@ -2,7 +2,9 @@ import { RestHandler } from 'msw'
 
 import { sampleHanlders } from './sample'
 
-export function getHandlersArray(handlers: Record<string, RestHandler>): RestHandler[] {
+export function getHandlersArray(
+	handlers: Record<string, RestHandler>,
+): RestHandler[] {
 	return Object.values(handlers)
 }
 
