@@ -1,6 +1,6 @@
 {
 	"extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended"],
-	"plugins": ["unused-imports", "import", "jsx-a11y"],
+	"plugins": ["unused-imports", "import", "jsx-a11y", "import-access"],
 	"rules": {
 		"unused-imports/no-unused-imports": "warn",
 		"@typescript-eslint/no-unused-vars": "off",
@@ -41,6 +41,7 @@
 					}
 				]
 			}
-		]
+		],
+		"import-access/jsdoc": "error"
 	}
 }
