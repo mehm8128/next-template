@@ -1,7 +1,7 @@
 import { setupWorker } from 'msw'
 import { setupServer } from 'msw/node'
 
-import { getApiOrigin } from '@/libs/env'
+import { getApiOrigin } from '@/lib/env'
 
 import { handlers } from './handlers'
 

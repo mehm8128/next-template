@@ -1,6 +1,6 @@
 'use client'
 
-import { initMock } from '@/libs/mocks/main'
+import { initMock } from '@/lib/mocks/main'
 
 initMock()
 
