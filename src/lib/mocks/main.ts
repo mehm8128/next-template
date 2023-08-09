@@ -10,7 +10,14 @@ export const initMock = () => {
 		if (typeof window !== 'undefined') {
 			const worker = setupWorker(...handlers(getApiOrigin()))
 			// eslint-disable-next-line @typescript-eslint/no-floating-promises
-			worker.start()
+			worker.start({
+				onUnhandledRequest(req, print) {
+					if (req.url.pathname.startsWith('/_next')) {
+						return
+					}
+					print.warning()
+				},
+			})
 		} else {
 			const server = setupServer(...handlers(getApiOrigin()))
 			server.listen()
