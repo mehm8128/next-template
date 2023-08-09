@@ -1,10 +1,8 @@
 {
 	"extends": [
 		"next/core-web-vitals",
-		"plugin:jsx-a11y/recommended",
-		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/strict",
 		"eslint:recommended",
-		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended-type-checked",
 		"prettier"
 	],
@@ -13,13 +11,7 @@
 		"project": true,
 		"tsconfigRootDir": "."
 	},
-	"plugins": [
-		"unused-imports",
-		"import",
-		"jsx-a11y",
-		"import-access",
-		"@typescript-eslint"
-	],
+	"plugins": ["unused-imports", "import-access", "@typescript-eslint"],
 	"root": true,
 	"ignorePatterns": ["**/*.js"],
 	"rules": {
@@ -64,8 +56,6 @@
 			}
 		],
 		"import-access/jsdoc": "error",
-		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn",
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off"
 	}
