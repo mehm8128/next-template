@@ -1,13 +1,16 @@
 import { RestHandler } from 'msw'
 
-import { sampleHanlders } from './sample'
+import { sampleHandlers } from './sample'
 
 export function getHandlersArray(
-	handlers: Record<string, RestHandler>,
+	handlers: Record<
+		string,
+		(arg?: Partial<Record<string, unknown>>) => RestHandler
+	>,
 ): RestHandler[] {
-	return Object.values(handlers)
+	return Object.values(handlers).map(handler => handler())
 }
 
 export function handlers(apiOrigin: string) {
-	return [getHandlersArray(sampleHanlders(apiOrigin))].flat()
+	return [getHandlersArray(sampleHandlers(apiOrigin))].flat()
 }
