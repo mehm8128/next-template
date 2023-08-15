@@ -10,7 +10,7 @@
 		"format": "prettier --write .",
 		"type-check": "tsc --noEmit",
 		"prepare": "husky install",
-		"test": "vitest"
+		"test": "vitest --passWithNoTests"
 	},
 	"dependencies": {
 		"@kuma-ui/core": "^1.1.2",
