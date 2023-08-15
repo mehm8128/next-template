@@ -4,14 +4,19 @@
 		"plugin:jsx-a11y/strict",
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended-type-checked",
-		"prettier"
+		"prettier",
+		"plugin:jest/recommended",
+		"plugin:jest/style"
 	],
+	"env": {
+		"jest/globals": true
+	},
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"project": true,
 		"tsconfigRootDir": "."
 	},
-	"plugins": ["unused-imports", "import-access", "@typescript-eslint"],
+	"plugins": ["unused-imports", "import-access", "@typescript-eslint", "jest"],
 	"root": true,
 	"ignorePatterns": ["**/*.js"],
 	"rules": {
@@ -57,6 +62,7 @@
 		],
 		"import-access/jsdoc": "error",
 		"react/jsx-uses-react": "off",
-		"react/react-in-jsx-scope": "off"
+		"react/react-in-jsx-scope": "off",
+		"jest/require-top-level-describe": ["warn"]
 	}
 }
