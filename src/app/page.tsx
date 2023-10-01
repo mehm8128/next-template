@@ -1,9 +1,13 @@
-'use client'
+import { Suspense } from 'react'
 
-import { initMock } from '@/lib/mocks/main'
-
-initMock()
+import Sample from '@/features/sample/components/Sample'
 
 export default function Home() {
-	return <main></main>
+	return (
+		<main>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Sample />
+			</Suspense>
+		</main>
+	)
 }

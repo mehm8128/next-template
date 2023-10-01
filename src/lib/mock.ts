@@ -1,16 +1,25 @@
-import { setupWorker } from 'msw'
+import { RestHandler, setupWorker } from 'msw'
 import { setupServer } from 'msw/node'
+
+import { sampleHandlers } from '@/features/sample/mock/handlers'
 
 import { getApiOrigin } from '@/lib/env'
 
-import { handlers } from './handlers'
+export const getHandlersArray = (
+	handlers: Record<string, () => RestHandler>,
+): RestHandler[] => {
+	return Object.values(handlers).map(handler => handler())
+}
 
-export const initMock = () => {
+const handlers = (apiOrigin: string) => {
+	return [getHandlersArray(sampleHandlers(apiOrigin))].flat()
+}
+
+export const initMock = async () => {
 	if (process.env.NODE_ENV === 'development') {
 		if (typeof window !== 'undefined') {
 			const worker = setupWorker(...handlers(getApiOrigin()))
-			// eslint-disable-next-line @typescript-eslint/no-floating-promises
-			worker.start({
+			await worker.start({
 				onUnhandledRequest(req, print) {
 					if (req.url.pathname.startsWith('/_next')) {
 						return
