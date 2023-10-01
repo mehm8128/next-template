@@ -4,6 +4,7 @@
 		"plugin:jsx-a11y/strict",
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended-type-checked",
+		"plugin:@typescript-eslint/stylistic-type-checked",
 		"prettier",
 		"plugin:jest/recommended",
 		"plugin:jest/style"
@@ -21,6 +22,15 @@
 	"ignorePatterns": ["**/*.js"],
 	"rules": {
 		"unused-imports/no-unused-imports": "warn",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"varsIgnorePattern": "^_",
+				"args": "after-used",
+				"argsIgnorePattern": "^_"
+			}
+		],
 		"@typescript-eslint/no-unused-vars": "off",
 		"import/no-duplicates": ["warn"],
 		"import/order": [
@@ -63,6 +73,13 @@
 		"import-access/jsdoc": "error",
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off",
-		"jest/require-top-level-describe": ["warn"]
+		"jest/require-top-level-describe": ["warn"],
+		"@typescript-eslint/no-unsafe-assignment": "off",
+		"@typescript-eslint/consistent-type-assertions": [
+			"warn",
+			{
+				"assertionStyle": "never"
+			}
+		]
 	}
 }
