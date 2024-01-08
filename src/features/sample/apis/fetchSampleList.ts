@@ -6,7 +6,7 @@ import {
 import { getApiOrigin } from '@/lib/env'
 import { convertSampleFromData } from './converter'
 
-import { useSWR } from '@/lib/fetcher'
+import { fetcher, useSWR } from '@/lib/fetcher'
 
 const fetchSampleList = async (
 	query?: Partial<SampleListQuery>
@@ -19,10 +19,11 @@ const fetchSampleList = async (
 			queryParams.append(query, value)
 		}
 	}
-	const res = await fetch(`${getApiOrigin()}/samples?${queryParams}`)
-	const data: SampleListData = await res.json()
+	const res: SampleListData = await fetcher(
+		`${getApiOrigin()}/samples?${queryParams}`
+	)
 
-	return data.map(convertSampleFromData)
+	return res.map(convertSampleFromData)
 }
 
 export const useSampleList = (query?: Partial<SampleListQuery>) => {
