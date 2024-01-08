@@ -1,5 +1,6 @@
 'use client'
 
+import { KumaRegistry } from '@kuma-ui/next-plugin/registry'
 import { SWRConfig, unstable_serialize } from 'swr'
 
 import { initMock } from '@/lib/mock'
@@ -13,5 +14,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
 		}
 	}
 
-	return <SWRConfig value={swrOptions}>{children}</SWRConfig>
+	return (
+		<KumaRegistry>
+			<SWRConfig value={swrOptions}>{children}</SWRConfig>
+		</KumaRegistry>
+	)
 }
