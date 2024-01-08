@@ -1,13 +1,5 @@
-import { Suspense } from 'react'
+'use client'
 
-import Sample from '@/features/sample/components/Sample'
-
-export default function Home() {
-	return (
-		<main>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Sample />
-			</Suspense>
-		</main>
-	)
+export default function Page() {
+	return <main>aaa</main>
 }

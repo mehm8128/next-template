@@ -11,7 +11,7 @@ describe('validator', () => {
 			const sampleSeed: SampleCreateSeed = {
 				name: '',
 				age: 21,
-				bio: 'sample bio',
+				bio: 'sample bio'
 			}
 			expect(sampleSeedValidate(sampleSeed)).toBe(false)
 		})
@@ -19,7 +19,7 @@ describe('validator', () => {
 			const sampleSeed: SampleCreateSeed = {
 				name: 'sample name',
 				age: -1,
-				bio: 'sample bio',
+				bio: 'sample bio'
 			}
 			expect(sampleSeedValidate(sampleSeed)).toBe(false)
 		})

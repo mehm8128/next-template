@@ -35,5 +35,5 @@ export interface SampleCreateSeedData {
 	bio: string
 }
 export interface SampleListQueryData {
-	id: string
+	id?: string
 }
