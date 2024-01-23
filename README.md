@@ -1,6 +1,6 @@
 # next template
 - Next.js with App Router
-- SWR
+- TanStack Query
 - Jotai
 - Kuma UI
 - Biome

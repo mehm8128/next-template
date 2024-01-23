@@ -6,17 +6,17 @@ import {
 import { getApiOrigin } from '@/lib/env'
 import { convertSampleFromData } from './converter'
 
-import { fetcher, useSWR } from '@/lib/fetcher'
+import { fetcher } from '@/lib/fetcher'
+import { useSuspenseQuery } from '@tanstack/react-query'
 
 const fetchSampleList = async (
 	query?: Partial<SampleListQuery>
 ): Promise<SampleList> => {
-	const queryData = query
 	const queryParams = new URLSearchParams()
-	for (const query in queryData) {
-		const value = queryData[query as keyof typeof queryData]
+	for (const q in query) {
+		const value = query[q as keyof typeof query]
 		if (value !== undefined) {
-			queryParams.append(query, value)
+			queryParams.append(q, value)
 		}
 	}
 	const res: SampleListData = await fetcher(
@@ -27,5 +27,8 @@ const fetchSampleList = async (
 }
 
 export const useSampleList = (query?: Partial<SampleListQuery>) => {
-	return useSWR(['/samples', query?.id], () => fetchSampleList(query))
+	return useSuspenseQuery({
+		queryKey: ['/samples', query],
+		queryFn: () => fetchSampleList(query)
+	})
 }
