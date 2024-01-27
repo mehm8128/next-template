@@ -2,6 +2,7 @@
 
 import { KumaRegistry } from '@kuma-ui/next-plugin/registry'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental'
 
 import { initMock } from '@/lib/mock'
 
@@ -12,7 +13,9 @@ const queryClient = new QueryClient()
 export function Providers({ children }: { children: React.ReactNode }) {
 	return (
 		<KumaRegistry>
-			<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+			<QueryClientProvider client={queryClient}>
+				<ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
+			</QueryClientProvider>
 		</KumaRegistry>
 	)
 }
