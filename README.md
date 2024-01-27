@@ -4,5 +4,6 @@
 - Jotai
 - Kuma UI
 - Biome
+- Markuplint
 - Vitest
 - msw
