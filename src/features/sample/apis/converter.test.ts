@@ -4,7 +4,8 @@ import {
 	SampleCreateSeedData,
 	SampleData,
 	SampleListQuery,
-	SampleListQueryData
+	SampleListQueryData,
+	parseId
 } from '@/features/sample/model/type'
 import {
 	convertSampleCreateSeedToData,
@@ -12,7 +13,6 @@ import {
 	convertSampleListQueryToData
 } from './converter'
 
-import { parseId } from '@/lib/type'
 
 describe('converter', () => {
 	describe('convertSampleListQueryToData', () => {

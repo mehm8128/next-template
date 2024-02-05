@@ -10,7 +10,7 @@
 		"biome:ci": "biome ci src",
 		"lint:markup": "markuplint \"**/*.[jt]sx\"",
 		"type-check": "tsc --noEmit",
-		"test": "vitest --passWithNoTests"
+		"test": "vitest --passWithNoTests --typecheck"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^3.3.4",

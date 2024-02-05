@@ -4,10 +4,10 @@ import {
 	SampleCreateSeedData,
 	SampleData,
 	SampleListQuery,
-	SampleListQueryData
-} from '../model/type'
+	SampleListQueryData,
+	parseId
+} from '@/features/sample/model/type'
 
-import { parseId } from '@/lib/type'
 
 export const convertSampleListQueryToData = (
 	query?: Partial<SampleListQuery>
