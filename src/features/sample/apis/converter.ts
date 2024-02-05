@@ -8,7 +8,6 @@ import {
 	parseId
 } from '@/features/sample/model/type'
 
-
 export const convertSampleListQueryToData = (
 	query?: Partial<SampleListQuery>
 ): SampleListQueryData => {

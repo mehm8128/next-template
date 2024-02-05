@@ -13,7 +13,6 @@ import {
 	convertSampleListQueryToData
 } from './converter'
 
-
 describe('converter', () => {
 	describe('convertSampleListQueryToData', () => {
 		test('サーバー用のデータに変換できる', () => {
