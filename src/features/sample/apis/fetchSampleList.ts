@@ -19,16 +19,14 @@ const fetchSampleList = async (
 			queryParams.append(q, value)
 		}
 	}
-	const res: SampleListData = await fetcher(
-		`${getApiOrigin()}/samples?${queryParams}`
-	)
+	const res: SampleListData = await fetcher(`${getApiOrigin()}/api/samples`)
 
 	return res.map(convertSampleFromData)
 }
 
 export const useSampleList = (query?: Partial<SampleListQuery>) => {
 	return useSuspenseQuery({
-		queryKey: ['/samples', query],
+		queryKey: ['samples', query],
 		queryFn: () => fetchSampleList(query)
 	})
 }

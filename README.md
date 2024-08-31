@@ -2,8 +2,7 @@
 - Next.js with App Router
 - TanStack Query
 - Jotai
-- Kuma UI
+- CSS Modules
 - Biome
 - Markuplint
 - Vitest
-- msw
