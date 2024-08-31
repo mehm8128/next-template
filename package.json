@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "run-p dev:next gen:css",
+		"dev:next": "next dev",
 		"build": "next build",
 		"start": "next start",
 		"biome": "biome check --apply src",
