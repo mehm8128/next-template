@@ -1,12 +1,14 @@
 import {
 	type Sample,
 	type SampleCreateSeed,
-	type SampleCreateSeedData,
-	type SampleData,
 	type SampleListQuery,
-	type SampleListQueryData,
 	parseId
-} from '@/features/sample/model/type'
+} from '@/features/sample/model/client'
+import type {
+	SampleCreateSeedData,
+	SampleData,
+	SampleListQueryData
+} from '@/features/sample/model/server'
 
 export const convertSampleListQueryToData = (
 	query?: Partial<SampleListQuery>

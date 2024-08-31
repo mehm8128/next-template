@@ -1,13 +1,12 @@
 import type {
 	SampleList,
-	SampleListData,
 	SampleListQuery
-} from '@/features/sample/model/type'
+} from '@/features/sample/model/client'
+import type { SampleListData } from '@/features/sample/model/server'
 import { getApiOrigin } from '@/lib/env'
-import { convertSampleFromData } from './converter'
-
 import { fetcher } from '@/lib/fetcher'
 import { useSuspenseQuery } from '@tanstack/react-query'
+import { convertSampleFromData } from '../converter'
 
 const fetchSampleList = async (
 	query?: Partial<SampleListQuery>
